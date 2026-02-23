@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | HAS-CARD</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="auth-wall" class="auth-overlay">
+    <div class="pin-box">
+        <span class="material-symbols-outlined lock-icon">lock</span>
+        <h2>Admin Doğrulaması</h2>
+        <p>Devam etmek için 4 haneli kodu girin.</p>
+        <input type="password" id="adminPin" maxlength="4" placeholder="••••" autofocus>
+        <button id="loginBtn">GİRİŞ YAP</button>
+        <div id="pin-error" class="error-msg"></div>
+    </div>
+</div>
+
+    <div id="admin-panel" class="admin-layout" style="display: none;">
+        <aside class="sidebar">
+            <div class="nav-logo">ADMIN<span>PANEL</span></div>
+            <nav class="nav-links">
+                <a href="#" class="active" onclick="showSection('add-card')">
+                    <span class="material-symbols-outlined">add_box</span> Yeni Kart Ekle
+                </a>
+                <a href="#" onclick="showSection('card-pool')">
+                    <span class="material-symbols-outlined">database</span> Kart Havuzu
+                </a>
+            </nav>
+            <div class="nav-bottom">
+                <a href="mainpage.html"><span class="material-symbols-outlined">logout</span> Çıkış Yap</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <section id="add-card-section">
+                <div class="header-text">
+                    <h1>Yeni Kart <span>Oluştur</span></h1>
+                    <p>allCards veritabanına yeni bir varlık mühürle.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="form-card">
+                        <div class="input-grid">
+                            <div class="input-group"><span>General ID</span><input type="text" id="c_id" placeholder="005"></div>
+                            <div class="input-group"><span>Oyuncu Adı</span><input type="text" id="c_name" placeholder="Arda Güler"></div>
+                            <div class="input-group"><span>GEN</span><input type="number" id="c_gen" placeholder="81"></div>
+                            <div class="input-group"><span>Mevki</span><input type="text" id="c_pos" placeholder="CAM"></div>
+                            <div class="input-group"><span>Piyasa Değeri</span><input type="text" id="c_value" placeholder="10M€"></div>
+                            <div class="input-group"><span>HP (Güç)</span><input type="number" id="c_hp" placeholder="400"></div>
+                            <div class="input-group"><span>HC (Market Fiyatı)</span><input type="number" id="c_hc" placeholder="1500"></div>
+                            <div class="input-group"><span>Max Supply</span><input type="number" id="c_supply" placeholder="5"></div>
+                            <div class="input-group">
+                                <span>Limited mı?</span>
+                                <select id="c_is_limited" onchange="toggleLimitedFields()" style="background: #1a1a1a; color: white; border: 1px solid #333; padding: 12px; border-radius: 8px;">
+                                    <option value="false">Hayır</option>
+                                    <option value="true">Evet</option>
+                                </select>
+                            </div>
+
+                            <div id="limited_fields" class="input-group" style="display: none;">
+                                <span>Limited No (Örn: 1)</span>
+                                <input type="number" id="c_limited_no" placeholder="1">
+                            </div>
+                            <div class="input-group"><span>Seri</span><input type="text" id="c_series" placeholder="2023-2024"></div>
+                            <div class="input-group"><span>Ülke (TR, AR)</span><input type="text" id="c_nation" placeholder="TR"></div>
+                            <div class="input-group full"><span>Görsel URL</span><input type="text" id="c_img" placeholder="https://..."></div>
+                            <div class="input-group full">
+                                <span>Nadirlik</span>
+                                <select id="c_rarity" class="form-control" style="background: #1a1a1a; color: white; border: 1px solid #333; padding: 12px; border-radius: 8px; width: 100%;">
+                                    <option value="AA+ LEGEND">AA+ : LEGEND</option>
+                                    <option value="AA EPIC">AA : EPİC</option>
+                                    <option value="BB ORIGIN">BB : ORIGIN</option>
+                                    <option value="CC STANDART">CC : STANDART</option>
+                                    <option value="FF NEW TALENT">FF : NEW TALENT</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button id="testBtn" class="btn-test" onclick="previewCard()">TEST ET</button>
+                            <button id="submitBtn" class="btn-submit" disabled onclick="pushToDB()">HAVUZA GÖNDER</button>
+                        </div>
+                    </div>
+
+                    <div class="preview-area">
+                        <h3>Kart Önizleme</h3>
+                        <div id="cardPreview" class="preview-placeholder">Verileri girip Test Et'e basın</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="card-pool-section" style="display: none;">
+                <h1>Kart Havuzu <span>(allCards)</span></h1>
+                <div id="poolDisplay" class="pool-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

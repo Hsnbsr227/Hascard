@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASCARD | Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="mainpage.css">
+</head>
+<body>
+
+    <nav class="side-nav">
+    <div class="nav-logo">
+        <span class="material-symbols-outlined">deployed_code</span>
+    </div>
+    
+    <div class="nav-links">
+        <a href="#" class="play-link" title="Savaşa Gir!">
+            <span class="material-symbols-outlined play-icon">swords</span>
+        </a>
+        <a href="#" class="active" title="Koleksiyonum">
+            <span class="material-symbols-outlined">grid_view</span>
+        </a>
+        <a href="store.html" title="Mağaza / Market">
+            <span class="material-symbols-outlined">shopping_bag</span>
+        </a>
+        <a href="#" title="Pazar Yeri / VS">
+            <span class="material-symbols-outlined">groups</span>
+        </a>
+        <a href="#" title="Cüzdan">
+            <span class="material-symbols-outlined">account_balance_wallet</span>
+        </a>
+    </div>
+
+    <div class="nav-bottom">
+        <div class="profile-container">
+            <div class="nav-profile" id="profile-trigger">
+            <div class="avatar-wrapper">
+                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Hasan&backgroundColor=1a1a1a" alt="Profil" id="nav-avatar">
+                <span class="online-indicator"></span>
+            </div>
+            </div>
+
+            <div class="profile-popover" id="profile-popover">
+                <div class="popover-content">
+                    <div class="popover-header">
+                        <span id="popover-name">HASAN</span>
+                        <p>Kıdemli Koleksiyoncu</p>
+                    </div>
+                    <div class="popover-divider"></div>
+                    <div class="popover-menu">
+                        <a href="profile.html">
+                            <span class="material-symbols-outlined">person</span> Profili Gör
+                        </a>
+                        <a href="javascript:void(0)">
+                            <span class="material-symbols-outlined">edit</span> İsim Değiştir
+                        </a>
+                        <a href="javascript:void(0)">
+                            <span class="material-symbols-outlined">security</span> Güvenlik
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="nav-logout-btn" class="logout-btn">
+            <span class="material-symbols-outlined">logout</span>
+        </button>
+    </div>
+</nav>
+
+    <main class="dashboard-container">
+        <header class="dash-header">
+            <div class="welcome-text">
+                <h1 id="user-welcome">HOŞ GELDİN, <span id="nav-user-name">KOLEKSİYONER</span></h1>
+                <p>Nadir varlıkların mühürlendiği kişisel kasan.</p>
+            </div>
+           <div class="user-stats">
+                <div class="stat-group">
+                    <span class="material-symbols-outlined icon-white">style</span>
+                    <div class="stat-info">
+                        <span class="label">KARTLARIN</span>
+                        <span id="total-card-count" class="value">0</span>
+                    </div>
+                </div>
+
+                <div class="stat-group">
+                    <span class="material-symbols-outlined icon-gold">military_tech</span>
+                    <div class="stat-info">
+                        <span class="label">HAS POINT (HP)</span>
+                        <span id="total-hp-value" class="value gold">0</span>
+                    </div>
+                </div>
+
+                <div class="stat-group hc-clickable" onclick="window.location.href='store.html'">
+                    <span class="material-symbols-outlined icon-green">payments</span>
+                    <div class="stat-info">
+                        <span class="label">HAS COIN (HC)</span>
+                        <div class="hc-value-row">
+                            <span id="user-hc-balance" class="value hc">0</span>
+                            <span class="material-symbols-outlined add-btn">add_circle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="collection-grid" id="collection-grid">
+    </section>
+    </main>
+
+
+
+    <div id="card-detail-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content admin-style-panel">
+        <span class="close-modal" id="close-detail-modal">&times;</span>
+        
+        <div class="panel-layout">
+            <div class="panel-left">
+                <div id="modal-card-render" class="big-card-container">
+                    </div>
+            </div>
+
+            <div class="panel-right">
+                <h1 id="m-card-name">FERDİ KADIOĞLU</h1>
+                <p class="m-rarity-gold" id="m-card-rarity">AA+ LEGEND | #000</p>
+
+                <div class="info-grid">
+                    <div class="info-box"><span>GEN</span><strong id="m-card-gen">81</strong></div>
+                    <div class="info-box"><span>MEVKİ</span><strong id="m-card-pos">LB</strong></div>
+                    <div class="info-box"><span>HP GÜÇ</span><strong id="m-card-hp">600</strong></div>
+                    <div class="info-box"><span>HC FİYAT</span><strong class="gold-text" id="m-hc-price">4000</strong></div>
+                    <div class="info-box"><span>PİYASA</span><strong id="m-card-value">20M€</strong></div>
+                    <div class="info-box"><span>ÜLKE</span><strong id="m-card-country">TR</strong></div>
+                </div>
+
+                <div class="series-info">
+                    <span>SERİ BİLGİSİ</span>
+                    <strong>2023-2024 Serisi</strong>
+                </div>
+ 
+                <div class="panel-actions">
+                    <div class="action-row">
+                        <button id="btn-pazara-sun" class="btn-dark">📦 PAZARA SUN</button>
+                        <button id="btn-kilitle" class="btn-dark">🔒 KİLİTLE</button>
+                    </div>
+                    <button id="btn-hizli-sat" class="btn-yellow">💰 HIZLI SAT</button>
+                    <button id="btn-delete-record" class="btn-text-danger">🗑 KARTI VERİTABANINDAN SİL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Profile open menu script code-->
+    <script>
+        // Popover Kontrolü
+        const trigger = document.getElementById('profile-trigger');
+        const popover = document.getElementById('profile-popover');
+
+        if (trigger && popover) {
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = popover.style.display === 'block';
+                popover.style.display = isOpen ? 'none' : 'block';
+            });
+
+            // Sayfada başka bir yere tıklayınca kapat
+            document.addEventListener('click', (e) => {
+                if (!popover.contains(e.target) && e.target !== trigger) {
+                    popover.style.display = 'none';
+                }
+            });
+        }
+    </script>
+<!--Profile open menu script code-->
+<script type="module" src="mainpage.js"></script>
+<div id="toast-container"></div>
+</body>
+</html>

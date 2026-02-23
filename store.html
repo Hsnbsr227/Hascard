@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASCARD | Varlık Marketi</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="mainpage.css"> 
+    <link rel="stylesheet" href="store.css">
+</head>
+<body>
+
+    <nav class="side-nav">
+        <div class="nav-logo">
+            <span class="material-symbols-outlined">deployed_code</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="#" class="play-link" title="Savaşa Gir!">
+                <span class="material-symbols-outlined play-icon">swords</span>
+            </a>
+            <a href="mainpage.html" title="Koleksiyonum">
+                <span class="material-symbols-outlined">grid_view</span>
+            </a>
+            <a href="store.html" class="active" title="Mağaza / Market">
+                <span class="material-symbols-outlined">shopping_bag</span>
+            </a>
+            <a href="#" title="Pazar Yeri / VS">
+                <span class="material-symbols-outlined">groups</span>
+            </a>
+            <a href="#" title="Cüzdan">
+                <span class="material-symbols-outlined">account_balance_wallet</span>
+            </a>
+        </div>
+
+        <div class="nav-bottom">
+            <div class="profile-container">
+                <div class="nav-profile" id="profile-trigger">
+                    <div class="avatar-wrapper">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Hasan&backgroundColor=1a1a1a" alt="Profil" id="nav-avatar">
+                        <span class="online-indicator"></span>
+                    </div>
+                </div>
+
+                <div class="profile-popover" id="profile-popover">
+                    <div class="popover-content">
+                        <div class="popover-header">
+                            <span id="popover-name">YÜKLENİYOR...</span>
+                            <p>Kıdemli Koleksiyoncu</p>
+                        </div>
+                        <div class="popover-divider"></div>
+                        <div class="popover-menu">
+                            <a href="profile.html"><span class="material-symbols-outlined">person</span> Profili Gör</a>
+                            <a href="javascript:void(0)"><span class="material-symbols-outlined">edit</span> İsim Değiştir</a>
+                            <a href="javascript:void(0)"><span class="material-symbols-outlined">security</span> Güvenlik</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="nav-logout-btn" class="logout-btn">
+                <span class="material-symbols-outlined">logout</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <header class="dash-header">
+            <div class="welcome-text">
+                <h1>VARLIK <span class="gold-text">MARKETİ</span></h1>
+                <p>Nadir paketleri mühürlemek için HC bakiyeni kullan.</p>
+            </div>
+
+            <div class="user-stats">
+                <div class="stat-group hc-clickable">
+                    <span class="material-symbols-outlined icon-green">payments</span>
+                    <div class="stat-info">
+                        <span class="label">HAS COIN (HC)</span>
+                        <div class="hc-value-row">
+                            <span id="user-hc-balance" class="value hc">0</span>
+                            <span class="material-symbols-outlined add-btn">add_circle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="market-hero-slider" id="main-banner">
+            <div class="slider-track">
+                <div class="slide active">
+                    <img src="img/New Packet Fenerbahçe Sk Banner.png" alt="Fenerbahçe 23-24 Serisi">
+                    <div class="slide-overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="market-central-area">
+            <h2 class="market-label">COIN TAKVİYESİ</h2>
+            
+            <div class="market-grid" id="coin-packages">
+                </div>
+        </section>
+
+        <section class="market-central-area">
+            <h2 class="market-label">ÖZEL KOLEKSİYONLAR</h2>
+            
+            <div class="package-display">
+                <div class="vertical-pack-card">
+                    <div class="pack-badge">YENİ</div>
+                    <div class="pack-visual">
+                        <img src="img/2023- 2024 Serisi Kart Tasarımı.png" alt="FB 23-24">
+                    </div>
+                    <div class="pack-details">
+                        <h3>FB 2023-24 SERİSİ</h3>
+                        <div class="pack-price-tag">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>180 HC</span>
+                        </div>
+                        <div class="pack-actions">
+                            <button class="inspect-btn" id="inspect-fb-pack">PAKETİ İNCELE</button>
+                            <button class="buy-pack-btn" id="buy-fb-pack">MÜHÜRLE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="inspect-modal" class="inspect-overlay">
+    <div class="inspect-content">
+        <button class="close-inspect">&times;</button>
+        
+        <div class="inspect-body">
+            <div class="inspect-left">
+                <img src="img/2023- 2024 Serisi Kart Tasarımı.png" class="floating-pack" alt="FB Pack">
+            </div>
+
+            <div class="inspect-right">
+                <div class="inspect-header">
+                    <h2>FENERBAHÇE 2023-24 SERİSİ</h2>
+                    <p>Bu paketten çıkabilecek kartlar aşağıda listelenmiştir.</p>
+                </div>
+                <div class="possible-cards-grid">
+                    <div class="mini-card-slot"><img src="img/Arda Guler.png"></div>
+                    <div class="mini-card-slot"><img src="img/Ferdi Kadioglu.png"></div>
+                    <div class="mini-card-slot"><img src="img/Edin Dzeko.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="store.js"></script>
+</body>
+</html>

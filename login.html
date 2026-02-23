@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASCARD | Oturum Aç</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body class="auth-page">
+
+    <div class="auth-container animate__animated animate__fadeIn">
+        <div class="auth-box">
+           <a href="index.html" class="back-link-minimal">
+              <span class="material-symbols-outlined">west</span>
+            </a>
+            
+           <div class="auth-header-new">
+    <div class="header-text">
+            <h1>OTURUM AÇ</h1>
+            <p>Sisteme erişmek için kimlik bilgilerinizi girin.</p>
+        </div>
+        <span class="material-symbols-outlined auth-icon-right">fingerprint</span>
+    </div>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <span class="material-symbols-outlined">mail</span>
+                    <input type="email" id="login-email" placeholder="E-posta Adresi" required>
+                </div>
+                <div class="input-group">
+                    <span class="material-symbols-outlined">lock</span>
+                    <input type="password" id="login-password" placeholder="Parola" required>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">ERİŞİM SAĞLA</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Henüz bir kimliğiniz yok mu? <a href="register.html">Yeni Kimlik Oluştur</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

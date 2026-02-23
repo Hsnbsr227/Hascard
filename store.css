@@ -1,0 +1,371 @@
+/* GENEL MARKET ALANI */
+.market-central-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gold-text {
+    color: #ffc107;
+}
+
+.market-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #666;
+    margin: 40px 0;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* KESKİN VE NET HERO SLIDER (1200x450 MODU) */
+.market-hero-slider {
+    width: 100%;
+    max-width: 1100px; /* Tam istediğin genişlik */
+    height: 400px;      /* Tam istediğin yükseklik */
+    margin: 0 auto;     /* Ortala */
+    border-radius: 0 !important; /* YUVARLAK KÖŞELERİ ÇÖPE ATTIK */
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: none !important; /* HAREKET ET-ME-SİN! */
+}
+
+/* Hover'daki tüm o oynamaları sildik */
+.market-hero-slider:hover {
+    transform: none !important;
+}
+
+.slider-track, .slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 1100px;
+    height: 400px;
+    object-fit: fill; /* RESMİ ASLA KIRPMAZ, 1200x450 KALIBINA TAM OTURTUR */
+    display: block;
+    border-radius: 0 !important;
+}
+
+/* Overlay'i tamamen etkisiz hale getirdik, sadece alan olarak duruyor */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Resmin üzerine gölge bile düşürmesin */
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+/* --- COIN TAKVİYESİ - ELİT TASARIM --- */
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); /* Biraz daha geniş kartlar */
+    gap: 25px;
+    padding: 20px 0;
+    margin-bottom: 50px;
+}
+
+.coin-card {
+    background: linear-gradient(145deg, #111111 0%, #080808 100%); /* Hafif derinlikli siyah */
+    border: 1px solid #1a1a1a;
+    padding: 10px 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 0 !important; /* Taviz yok, jilet gibi keskin */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+/* Kartın Arkasındaki Hafif Işıma Efekti */
+.coin-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.coin-card:hover {
+    border-color: #4caf50;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* İkon Alanı */
+.coin-icon-wrapper {
+    background: rgba(76, 175, 80, 0.05); /* Çok hafif yeşil zemin */
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.coin-icon-wrapper .material-symbols-outlined.icon-green {
+    font-size: 42px;
+    color: #4caf50;
+    filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+}
+
+/* Miktar Yazısı */
+.hc-amount {
+    font-size: 42px; /* Daha okunaklı ve büyük */
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.hc-label {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Fiyat Butonu - İşte Burası Çok Önemli */
+.buy-btn {
+    width: 100%;
+    background: #111;
+    border: 1px solid #222;
+    color: #4caf50; /* Yazı yeşil */
+    padding: 15px 0;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0 !important;
+}
+
+.buy-btn:hover {
+    background: #4caf50;
+    color: #000; /* Hoverda siyah yazı, yeşil bakiye butonu gibi */
+    border-color: #4caf50;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+/* Market Label (COIN TAKVİYESİ Başlığı) */
+.market-label {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: #4caf50; /* Başlığı da yeşil yaptık ki tema otursun */
+    margin: 60px 0 30px 0;
+    font-weight: 900;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+.vertical-pack-card {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    width: 280px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.vertical-pack-card:hover {
+    border-color: #4caf50;
+    transform: translateY(-10px);
+}
+
+.pack-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: #4caf50;
+    color: #000;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 8px;
+}
+
+.pack-visual img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+}
+
+.pack-details h3 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.pack-price-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #4caf50;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.pack-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inspect-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #888;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.inspect-btn:hover {
+    color: #fff;
+    border-color: #666;
+}
+
+.buy-pack-btn {
+    background: #4caf50;
+    border: none;
+    color: #000;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+
+
+
+.inspect-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.98);
+    display: none; /* JS ile açılacak */
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.inspect-content {
+    width: 90%;
+    max-width: 1100px;
+    position: relative;
+}
+
+.inspect-body {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Sol paket, Sağ liste */
+    gap: 50px;
+    align-items: center;
+}
+
+/* Sol taraftaki pakete hafif bir süzülme efekti */
+.floating-pack {
+    width: 100%;
+    max-width: 350px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+    animation: packFloat 3s ease-in-out infinite;
+}
+
+@keyframes packFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Sağ taraftaki kart listesi */
+.possible-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.mini-card-slot {
+    background: #111;
+    border: 1px solid #222;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.mini-card-slot:hover {
+    transform: scale(1.1) rotate(2deg);
+    border-color: #4caf50;
+}
+
+.mini-card-slot img { width: 100%; height: auto; }
+
+.close-inspect {
+    position: absolute;
+    top: -50px; right: 0;
+    background: none; border: none;
+    color: #fff; font-size: 40px; cursor: pointer;
+}
+
+/* HEADER'I SAYFAYA ÇİVİLE */
+.dash-header {
+    position: fixed;        /* Ekrana sabitle */
+    top: 0;
+    left: 80px;            /* Yan menünün (side-nav) genişliği kadar boşluk bırakıyoruz */
+    right: 0;              /* Sağdan sona kadar uzansın */
+    z-index: 1000;         /* Diğer her şeyin üstünde kalsın */
+    background: rgba(8, 8, 8, 0.95); /* Arkadaki içeriğin okunabilmesi için hafif şeffaf siyah */
+    backdrop-filter: blur(15px);     /* Modern "cam" efekti */
+    padding: 20px 40px;    /* İçeriklerin kenarlara yapışmaması için */
+    border-bottom: 1px solid #1a1a1a; /* Altına şık bir çizgi */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sayfa içeriğinin (Slider ve Paketler) Header'ın altında kalmaması için */
+.dashboard-container {
+    padding-top: 120px; /* Header yüksekliği kadar boşluk bırakıyoruz */
+}
+
+/* Yan menü (side-nav) her zaman en üstte kalmalı */
+.side-nav {
+    z-index: 2000;
+}
+
+/* Inspect Modal açıldığında header'ın üstünde kalmalı */
+.inspect-overlay {
+    z-index: 10000;
+}
+
+
+
+
+
