@@ -31,8 +31,13 @@
                 <a href="#" onclick="showSection('card-pool')">
                     <span class="material-symbols-outlined">database</span> Kart Havuzu
                 </a>
+                <a href="#" onclick="showSection('coin-packages')">
+                    <span class="material-symbols-outlined">payments</span> Coin Paketleri
+                </a>
             </nav>
             <div class="nav-bottom">
+                <button id="fixLinksBtn" onclick="window.fixAllLinks()" style="background:#1a1a1a; border:1px solid #00bcd4; color:#00bcd4; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:1px; width:100%; margin-bottom:10px;">🔗 LİNKLERİ DÜZELT</button>
+                <button id="cleanBrokenBtn" onclick="window.cleanBrokenCards()" style="background:#1a1a1a; border:1px solid #ff4444; color:#ff4444; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:1px; width:100%; margin-bottom:10px;">🧹 BOZUK KARTLARI TEMİZLE</button>
                 <a href="mainpage.html"><span class="material-symbols-outlined">logout</span> Çıkış Yap</a>
             </div>
         </aside>
@@ -97,6 +102,50 @@
             <section id="card-pool-section" style="display: none;">
                 <h1>Kart Havuzu <span>(allCards)</span></h1>
                 <div id="poolDisplay" class="pool-grid"></div>
+            </section>
+
+            <section id="coin-packages-section" style="display: none;">
+                <div class="header-text">
+                    <h1>Coin <span>Paketleri</span></h1>
+                    <p>Store sayfasında görünen coin paketlerini yönet.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px;">
+                    <!-- YENİ PAKET FORMU -->
+                    <div class="form-card">
+                        <h3 style="color: var(--gold); margin-bottom: 25px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase;">Yeni Paket Ekle</h3>
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <span>HC Miktarı</span>
+                                <input type="number" id="cp_amount" placeholder="380">
+                            </div>
+                            <div class="input-group">
+                                <span>Fiyat (TL)</span>
+                                <input type="text" id="cp_price" placeholder="99.99 TL">
+                            </div>
+                            <div class="input-group">
+                                <span>Sıra (1=ilk)</span>
+                                <input type="number" id="cp_order" placeholder="1">
+                            </div>
+                        </div>
+                        <div class="form-actions" style="margin-top: 20px;">
+                            <button class="btn-submit" onclick="window.addCoinPackage()" style="opacity:1;">
+                                + PAKET EKLE
+                            </button>
+                            <button class="btn-test" onclick="window.seedDefaultPackages()">
+                                ↺ VARSAYILANLARI YÜKLE
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- MEVCUT PAKETLER -->
+                    <div class="form-card">
+                        <h3 style="color: var(--gold); margin-bottom: 25px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase;">Mevcut Paketler</h3>
+                        <div id="coinPackagesList" style="display:flex; flex-direction:column; gap:10px;">
+                            <p style="color:#444;">Yükleniyor...</p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
