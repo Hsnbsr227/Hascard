@@ -25,7 +25,7 @@
             <a href="store.html" class="active" title="Mağaza / Market">
                 <span class="material-symbols-outlined">shopping_bag</span>
             </a>
-            <a href="#" title="Pazar Yeri / VS">
+            <a href="market.html" title="Pazar Yeri / VS">
                 <span class="material-symbols-outlined">groups</span>
             </a>
             <a href="#" title="Cüzdan">
@@ -105,23 +105,7 @@
             <h2 class="market-label">ÖZEL KOLEKSİYONLAR</h2>
             
             <div class="package-display">
-                <div class="vertical-pack-card">
-                    <div class="pack-badge">YENİ</div>
-                    <div class="pack-visual">
-                        <img src="img/2023- 2024 Serisi Kart Tasarımı.png" alt="FB 23-24">
-                    </div>
-                    <div class="pack-details">
-                        <h3>FB 2023-24 SERİSİ</h3>
-                        <div class="pack-price-tag">
-                            <span class="material-symbols-outlined">payments</span>
-                            <span>180 HC</span>
-                        </div>
-                        <div class="pack-actions">
-                            <button class="inspect-btn" id="inspect-fb-pack">PAKETİ İNCELE</button>
-                            <button class="buy-pack-btn" id="buy-fb-pack">MÜHÜRLE</button>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
     </main>
@@ -141,15 +125,25 @@
                     <p>Bu paketten çıkabilecek kartlar aşağıda listelenmiştir.</p>
                 </div>
                 <div class="possible-cards-grid">
-                    <div class="mini-card-slot"><img src="img/Arda Guler.png"></div>
-                    <div class="mini-card-slot"><img src="img/Ferdi Kadioglu.png"></div>
-                    <div class="mini-card-slot"><img src="img/Edin Dzeko.png"></div>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
  
+
+<div id="pack-opening-overlay" class="pack-reveal-scene">
+    <div class="reveal-container">
+        <div id="shaking-pack" class="pack-visual-reveal">
+            <img src="img/2023- 2024 Serisi Kart Tasarımı.png" alt="Paket">
+        </div>
+        
+        <div id="revealed-cards-container" class="cards-fanned-out"></div>
+        
+        <button id="close-reveal-btn" class="continue-btn" style="display:none; margin-top: 30px;">TAMAM</button>
+    </div>
+</div>
 
     <script type="module" src="auth.js"></script>
     <script type="module" src="store.js"></script>
