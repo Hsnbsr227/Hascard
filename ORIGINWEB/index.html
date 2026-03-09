@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASCARD | Nadirliğin ve İhtişamın Dijital Koleksiyonu</title>
+
+    <meta name="description" content="HASCARD - Sadece en nadir dijital kartların buluşma noktası.">
+    <meta name="keywords" content="HASCARD, NFT, Digital Cards, Rare Collection">
+    <meta name="author" content="HASCARD Team">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { opacity: 0; transition: opacity 0.5s ease-in; }
+        body.loaded { opacity: 1; }
+    </style>
+</head>
+
+<body class="main-page"> 
+    
+    <main class="landing-wrapper">
+        <header class="hero-section animate__animated animate__fadeIn">
+            <div class="hero-content">
+                <h1 class="hero-title">NADİRLİĞİN <br> <span>ZİRVESİNE</span> HOŞ GELDİN</h1>
+                <p class="hero-subtitle">
+                    Zamanın ötesinde bir yatırım, dijital dünyada sarsılmaz bir otorite. 
+                    Sadece en seçkinlerin sahip olabileceği sınırlı varlıkları keşfetmek için kapıdan içeri girin.
+                </p>
+                <div class="hero-cta-group">
+                    <button id="main-action-btn" class="cta-btn primary">KOLEKSİYONU KEŞFET</button>
+                    <a href="#wealth" class="cta-btn secondary">AYRICALIKLAR</a>
+                </div>
+            </div>
+        </header>
+
+
+       <nav class="main-nav">
+            <div class="nav-brand">
+                <span class="material-symbols-outlined nav-logo-icon">deployed_code</span>
+                <div class="brand-name">HAS<span>CARD</span></div>
+            </div>
+            
+            <div class="nav-actions">
+            <div id="guest-actions" style="display: flex; gap: 20px; align-items: center;">
+                <a href="javascript:void(0)" onclick="openLoginModal()" class="nav-link-login">GİRİŞ YAP</a>
+                <a href="javascript:void(0)" onclick="openRegisterModal()" class="nav-btn-register">KAYIT OL</a>
+            </div>
+
+            <div id="user-actions" style="display: none; gap: 20px; align-items: center;">
+                <div onclick="window.location.href='mainpage.html'" style="cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                    <span id="nav-user-name" style="color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1px;"></span>
+                    <span class="material-symbols-outlined" style="color: #ffc107; font-size: 30px;">account_circle</span>
+                </div>
+                
+                <button id="nav-logout-btn" style="background:none; border:none; color:#888; cursor:pointer;">
+                    <span class="material-symbols-outlined">logout</span>
+                </button>
+            </div>
+        </div>
+        </nav>
+
+
+       <section id="wealth" class="wealth-section">
+    <section id="wealth" class="wealth-section">
+    <div class="about-container">
+        <div class="wealth-content">
+            <span class="gold-tag">HASCARD</span>
+            
+            <h2 class="main-huge-title">OYNA, BİRİKTİR, <span>KAZAN</span></h2>
+            
+            <p class="section-desc">Değersizden Efsane olmaya hazır mısın?</p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="material-symbols-outlined">style</span>
+                    <h3>KART</h3>
+                    <p>Nadir kartlara sahip olmaya çalışın.</p>
+                </div>
+
+                <div class="stat-box">
+                    <span class="material-symbols-outlined">diamond</span>
+                    <h3>DEĞER</h3>
+                    <p>Kartlardan tek değerli olan sizlersiniz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+   <div id="auth-modal" class="modal-overlay">
+    <div class="modal-content animate__animated animate__zoomIn">
+        <button class="close-modal" id="close-modal-btn">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <div class="modal-header">
+            <div class="auth-icon-seal">
+                <span class="material-symbols-outlined">token</span>
+            </div>
+            <h2>KAPIYI ARALAYIN</h2>
+            <p>HASCARD ekosistemine giriş yapmak için bir kimlik doğrulama yöntemi seçin.</p>
+        </div>
+
+        <div class="modal-options">
+            <a href="login.html" class="auth-card">
+                <span class="material-symbols-outlined">fingerprint</span>
+                <div class="auth-info">
+                    <h3>OTURUM AÇ</h3>
+                    <p>Mevcut yetkilerinizle içeri girin.</p>
+                </div>
+                <span class="arrow material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+
+            <a href="register.html" class="auth-card highlight">
+                <span class="material-symbols-outlined">key</span>
+                <div class="auth-info">
+                    <h3>YENİ KİMLİK</h3>
+                    <p>Nadirliğin dünyasında yerinizi ayırtın.</p>
+                </div>
+                <span class="arrow material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+        </div>
+
+        <div class="modal-footer">
+            <p>DOĞRULANMIŞ ERİŞİM MERKEZİ</p>
+        </div>
+    </div>
+</div>
+
+<button id="backToTop" class="back-to-top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+    <script>
+        // Sayfa Yükleme ve Scroll Animasyon Kontrolü
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        function revealOnScroll() {
+            const boxes = document.querySelectorAll(".stat-box");
+            boxes.forEach(box => {
+                let elementTop = box.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 150) {
+                    box.classList.add("animate__fadeInUp");
+                    box.style.opacity = "1";
+                }
+            });
+        }
+        window.addEventListener("scroll", revealOnScroll);
+    </script>
+
+
+    <!--Koleksiyon Tuşu script-->
+
+    <script>
+    const modal = document.getElementById('auth-modal');
+    const mainBtn = document.getElementById('main-action-btn');
+    const closeBtn = document.getElementById('close-modal-btn');
+
+    // Modalı Aç
+    mainBtn.onclick = () => {
+        modal.style.display = 'flex';
+    };
+
+    // Modalı Kapat
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+    };
+
+    // Dışarı tıklayınca kapat
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+</script>
+<!--koleksiyon tuşu script-->
+
+
+<!--Yukarı çık butonu script-->
+<script>
+
+    // Navbar'daki Giriş Yap ve Kayıt Ol butonları için fonksiyonlar
+function openLoginModal() {
+    const modal = document.getElementById('auth-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
+function openRegisterModal() {
+    // Kayıt ol da aynı seçim panelini açsın
+    openLoginModal();
+}
+
+    const backToTopBtn = document.getElementById("backToTop");
+
+// Sayfa 300px aşağı inince butonu göster
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+};
+
+// Butona tıklandığında en yukarı pürüzsüzce çık
+backToTopBtn.onclick = function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+
+</script>
+<!--Yukarı çık butonu script-->
+</body>
+</html>

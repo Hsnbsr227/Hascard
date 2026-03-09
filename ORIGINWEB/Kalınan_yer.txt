@@ -1,0 +1,3 @@
+07.03.2026: Anlık olarak Chat ve Pazar yerlerini düzenledik fakat
+istediğimiz gibi olmadı. Bir sonraki kodlamada bunları
+düzelteceğiz.

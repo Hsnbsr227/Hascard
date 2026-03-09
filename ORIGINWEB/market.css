@@ -1,0 +1,891 @@
+/* ===== MARKET LAYOUT ===== */
+.market-layout {
+    margin-left: 75px;
+    min-height: 100vh;
+    background: #080808;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    gap: 25px;
+}
+
+/* ===== HEADER ===== */
+.market-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.market-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.market-title-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.market-tag {
+    background: var(--gold, #f5c518);
+    color: #000;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+}
+.market-title-block h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+.market-title-block h1 span { color: var(--gold, #f5c518); }
+.market-header-left > p {
+    color: #555;
+    font-size: 13px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.market-header-right { display: flex; align-items: center; gap: 20px; }
+.hc-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 12px 20px;
+}
+.hc-display .material-symbols-outlined { color: var(--gold, #f5c518); font-size: 28px; }
+.hc-display .label { display: block; color: #555; font-size: 10px; font-weight: 800; letter-spacing: 2px; font-family: 'Rajdhani', sans-serif; }
+.hc-display .value { display: block; color: #fff; font-size: 22px; font-weight: 900; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 8px 16px;
+}
+.user-badge img { width: 32px; height: 32px; border-radius: 50%; background: #222; }
+.user-badge span { color: #fff; font-size: 13px; font-weight: 700; font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; }
+
+/* ===== TABS ===== */
+.market-tabs {
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 0;
+}
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #444;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+.tab-btn:hover { color: #888; }
+.tab-btn.active { color: var(--gold, #f5c518); border-bottom-color: var(--gold, #f5c518); }
+.tab-btn .material-symbols-outlined { font-size: 18px; }
+
+/* ===== TAB SECTIONS ===== */
+.tab-section { padding: 5px 0; }
+
+/* ===== PAZAR LAYOUT ===== */
+.pazar-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 25px;
+    align-items: start;
+}
+.pazar-main { display: flex; flex-direction: column; gap: 20px; }
+
+/* Filter Bar */
+.pazar-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+}
+.pazar-filter-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #080808;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    padding: 8px 14px;
+    flex: 1;
+    min-width: 200px;
+}
+.pazar-filter-search .material-symbols-outlined { color: #444; font-size: 18px; }
+.pazar-filter-search input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+.pazar-filter-search input::placeholder { color: #333; }
+.pazar-filter-group { display: flex; gap: 10px; }
+.pazar-filter-group select {
+    background: #080808;
+    border: 1px solid #262626;
+    color: #aaa;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+.btn-list-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold, #f5c518);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+.btn-list-card:hover { background: #ffd740; transform: translateY(-1px); }
+.btn-list-card .material-symbols-outlined { font-size: 18px; }
+
+/* Listings Grid */
+.listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+}
+.listing-card {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.listing-card:hover {
+    transform: translateY(-4px);
+    border-color: #333;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+.listing-card-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+}
+.listing-type-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
+}
+.badge-sabit { background: #1e90ff; color: #fff; }
+.badge-artirma { background: #ff6b35; color: #fff; }
+.listing-time-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
+}
+.listing-info {
+    padding: 12px 14px;
+    border-top: 1px solid #1a1a1a;
+}
+.listing-rarity {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 2px;
+}
+.listing-name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 4px;
+}
+.listing-seller {
+    color: #444;
+    font-size: 11px;
+    margin-bottom: 10px;
+    font-family: 'Rajdhani', sans-serif;
+}
+.listing-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.listing-price {
+    color: var(--gold, #f5c518);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.listing-price span { color: #555; font-size: 12px; font-family: 'Rajdhani', sans-serif; }
+.btn-buy {
+    background: var(--gold, #f5c518);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+.btn-buy:hover { background: #ffd740; }
+.btn-bid {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+.btn-bid:hover { background: #ff8855; }
+
+/* Own listing */
+.btn-cancel-listing {
+    background: #1a1a1a;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+.btn-cancel-listing:hover { background: #ff4444; color: #fff; }
+
+/* ===== PAZAR SIDEBAR ===== */
+.pazar-sidebar { display: flex; flex-direction: column; gap: 20px; }
+.sidebar-card {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    padding: 20px;
+}
+.sidebar-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0 0 16px;
+}
+.sidebar-card h3 .material-symbols-outlined { font-size: 16px; color: var(--gold, #f5c518); }
+.recent-trades { display: flex; flex-direction: column; gap: 10px; }
+.trade-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #141414;
+}
+.trade-item:last-child { border-bottom: none; }
+.trade-item img { width: 36px; height: 48px; object-fit: cover; border-radius: 4px; }
+.trade-info { flex: 1; }
+.trade-name { color: #ccc; font-size: 12px; font-weight: 700; font-family: 'Rajdhani', sans-serif; }
+.trade-detail { color: #444; font-size: 11px; font-family: 'Rajdhani', sans-serif; }
+.trade-price { color: var(--gold, #f5c518); font-size: 13px; font-weight: 800; font-family: 'Bebas Neue', sans-serif; }
+.trend-cards { display: flex; flex-direction: column; gap: 8px; }
+.trend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: #080808;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.trend-item:hover { background: #111; }
+.trend-rank { color: var(--gold, #f5c518); font-family: 'Bebas Neue', sans-serif; font-size: 18px; width: 20px; }
+.trend-img { width: 32px; height: 42px; object-fit: cover; border-radius: 4px; }
+.trend-name { color: #ccc; font-size: 12px; font-weight: 700; font-family: 'Rajdhani', sans-serif; flex: 1; }
+.trend-count { color: #555; font-size: 11px; font-family: 'Rajdhani', sans-serif; }
+.empty-note { color: #333; font-size: 12px; font-family: 'Rajdhani', sans-serif; text-align: center; padding: 20px 0; }
+
+/* ===== SOSYAL LAYOUT ===== */
+.sosyal-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 25px;
+    align-items: start;
+    height: calc(100vh - 260px);
+}
+.chat-panel {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #1a1a1a;
+    background: #0a0a0a;
+}
+.chat-header .material-symbols-outlined { color: var(--gold, #f5c518); font-size: 20px; }
+.chat-header h3 { color: #fff; font-size: 13px; font-weight: 900; letter-spacing: 2px; font-family: 'Rajdhani', sans-serif; flex: 1; margin: 0; }
+.online-count { display: flex; align-items: center; gap: 6px; color: #555; font-size: 11px; font-family: 'Rajdhani', sans-serif; }
+.dot-green { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; box-shadow: 0 0 6px #4caf50; }
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #222 transparent;
+}
+.chat-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+    color: #333;
+    text-align: center;
+}
+.chat-welcome .material-symbols-outlined { font-size: 36px; color: #2a2a2a; }
+.chat-welcome p { font-family: 'Rajdhani', sans-serif; font-size: 13px; }
+.chat-msg {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    animation: msgSlide 0.2s ease;
+}
+@keyframes msgSlide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.chat-msg.own { flex-direction: row-reverse; }
+.chat-msg-avatar { width: 30px; height: 30px; border-radius: 50%; background: #1a1a1a; flex-shrink: 0; }
+.chat-msg-body { max-width: 70%; }
+.chat-msg-meta {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+.chat-msg.own .chat-msg-meta { flex-direction: row-reverse; }
+.chat-msg-name { color: var(--gold, #f5c518); font-size: 11px; font-weight: 800; font-family: 'Rajdhani', sans-serif; }
+.chat-msg-time { color: #333; font-size: 10px; font-family: 'Rajdhani', sans-serif; }
+.chat-msg-text {
+    background: #141414;
+    border: 1px solid #1e1e1e;
+    border-radius: 0 10px 10px 10px;
+    padding: 9px 13px;
+    color: #ccc;
+    font-size: 13px;
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.4;
+    word-break: break-word;
+}
+.chat-msg.own .chat-msg-text {
+    background: #1a1a2e;
+    border-color: #252545;
+    border-radius: 10px 0 10px 10px;
+    color: #ddd;
+}
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    padding: 14px 16px;
+    border-top: 1px solid #1a1a1a;
+    background: #0a0a0a;
+}
+.chat-input-area input {
+    flex: 1;
+    background: #141414;
+    border: 1px solid #222;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.chat-input-area input:focus { border-color: var(--gold, #f5c518); }
+.send-btn {
+    background: var(--gold, #f5c518);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+.send-btn:hover { background: #ffd740; transform: scale(1.05); }
+.send-btn .material-symbols-outlined { font-size: 18px; }
+
+/* Sosyal Sidebar */
+.sosyal-sidebar { display: flex; flex-direction: column; gap: 16px; height: 100%; overflow-y: auto; }
+.users-card { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+.users-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; scrollbar-width: thin; scrollbar-color: #1a1a1a transparent; }
+.user-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.user-item:hover { background: #141414; }
+.user-item img { width: 30px; height: 30px; border-radius: 50%; background: #1a1a1a; }
+.user-item-info { flex: 1; }
+.user-item-name { color: #ccc; font-size: 12px; font-weight: 700; font-family: 'Rajdhani', sans-serif; }
+.user-item-status { color: #555; font-size: 10px; font-family: 'Rajdhani', sans-serif; }
+.user-item-online { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; }
+.dm-card { display: flex; flex-direction: column; }
+.dm-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.dm-header h3 { margin: 0; color: #fff; font-size: 12px; }
+.dm-close { background: none; border: none; color: #555; font-size: 20px; cursor: pointer; line-height: 1; }
+.dm-messages {
+    height: 180px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a transparent;
+}
+
+/* ===== SIRALAMA LAYOUT ===== */
+.siralama-layout { display: flex; flex-direction: column; gap: 30px; }
+.siralama-header { text-align: center; }
+.siralama-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: #fff;
+    margin: 0 0 8px;
+    letter-spacing: 4px;
+}
+.siralama-header h2 span { color: var(--gold, #f5c518); }
+.siralama-header p { color: #555; font-family: 'Rajdhani', sans-serif; font-size: 14px; margin: 0 0 20px; }
+.siralama-tabs { display: flex; gap: 10px; justify-content: center; }
+.s-tab {
+    background: #111;
+    border: 1px solid #222;
+    color: #555;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    letter-spacing: 1px;
+}
+.s-tab:hover { color: #888; }
+.s-tab.active { background: #1a1400; border-color: var(--gold, #f5c518); color: var(--gold, #f5c518); }
+
+/* Podiyum */
+.podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0 30px;
+    border-bottom: 1px solid #1a1a1a;
+}
+.podium-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.podium-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #555;
+}
+.podium-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #222;
+    background: #1a1a1a;
+    overflow: hidden;
+}
+.podium-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.podium-item.first .podium-avatar { width: 90px; height: 90px; border-color: var(--gold, #f5c518); box-shadow: 0 0 20px rgba(245,197,24,0.3); }
+.podium-item.second .podium-avatar { border-color: #C0C0C0; }
+.podium-item.third .podium-avatar { border-color: #CD7F32; }
+.podium-name { color: #fff; font-size: 13px; font-weight: 700; font-family: 'Rajdhani', sans-serif; text-align: center; }
+.podium-score { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; }
+.podium-item.first .podium-score { color: var(--gold, #f5c518); font-size: 26px; }
+.podium-item.second .podium-score { color: #C0C0C0; }
+.podium-item.third .podium-score { color: #CD7F32; }
+.podium-crown { font-size: 28px; }
+
+/* Leaderboard List */
+.leaderboard-list { display: flex; flex-direction: column; gap: 8px; }
+.lb-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    padding: 14px 20px;
+    transition: 0.2s;
+}
+.lb-item:hover { border-color: #2a2a2a; background: #121212; }
+.lb-item.me { border-color: var(--gold, #f5c518) !important; background: #0f0d00; }
+.lb-rank { color: #555; font-family: 'Bebas Neue', sans-serif; font-size: 22px; width: 36px; text-align: center; }
+.lb-rank.gold { color: var(--gold, #f5c518); }
+.lb-rank.silver { color: #C0C0C0; }
+.lb-rank.bronze { color: #CD7F32; }
+.lb-avatar { width: 40px; height: 40px; border-radius: 50%; background: #1a1a1a; overflow: hidden; }
+.lb-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.lb-info { flex: 1; }
+.lb-name { color: #fff; font-size: 15px; font-weight: 700; font-family: 'Rajdhani', sans-serif; }
+.lb-sub { color: #555; font-size: 11px; font-family: 'Rajdhani', sans-serif; }
+.lb-score { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold, #f5c518); letter-spacing: 1px; }
+.lb-score span { color: #555; font-size: 13px; font-family: 'Rajdhani', sans-serif; }
+
+/* ===== MODALS ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+}
+.modal-box {
+    background: #0e0e0e;
+    border: 1px solid #2a2a2a;
+    border-top: 3px solid var(--gold, #f5c518);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+.modal-close:hover { color: #fff; }
+.modal-box h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #fff;
+    margin: 0 0 6px;
+    letter-spacing: 2px;
+}
+.modal-box h2 span { color: var(--gold, #f5c518); }
+.modal-box > p { color: #555; font-family: 'Rajdhani', sans-serif; font-size: 13px; margin: 0 0 24px; }
+
+/* List Type Toggle */
+.list-type-toggle { display: flex; gap: 10px; margin-bottom: 24px; }
+.type-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #141414;
+    border: 1px solid #222;
+    color: #555;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    letter-spacing: 1px;
+}
+.type-btn:hover { color: #888; }
+.type-btn.active { background: #1a1400; border-color: var(--gold, #f5c518); color: var(--gold, #f5c518); }
+.type-btn .material-symbols-outlined { font-size: 18px; }
+
+/* Modal Form */
+.modal-form { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { color: #666; font-size: 11px; font-weight: 800; letter-spacing: 2px; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
+.form-group input, .form-group select {
+    background: #141414;
+    border: 1px solid #222;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus { border-color: var(--gold, #f5c518); }
+.selected-card-preview {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+.selected-card-preview img { width: 50px; height: 66px; object-fit: cover; border-radius: 6px; }
+.preview-name { color: #fff; font-size: 15px; font-weight: 700; font-family: 'Rajdhani', sans-serif; }
+.preview-rarity { font-size: 11px; font-weight: 800; letter-spacing: 1px; font-family: 'Rajdhani', sans-serif; }
+.preview-id { color: #444; font-size: 11px; font-family: 'Rajdhani', sans-serif; }
+.btn-confirm-list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--gold, #f5c518);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-confirm-list:hover { background: #ffd740; transform: translateY(-1px); }
+.btn-confirm-list .material-symbols-outlined { font-size: 20px; }
+
+/* Buy Modal */
+.buy-card-preview {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: flex-start;
+}
+.buy-card-preview img { width: 90px; height: 120px; object-fit: cover; border-radius: 8px; }
+.buy-card-info { flex: 1; }
+.buy-card-name { color: #fff; font-size: 24px; font-weight: 800; font-family: 'Rajdhani', sans-serif; }
+.buy-card-rarity { font-size: 12px; font-weight: 800; letter-spacing: 1px; font-family: 'Rajdhani', sans-serif; margin-bottom: 12px; }
+.buy-detail { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1a1a1a; font-family: 'Rajdhani', sans-serif; }
+.buy-detail span:first-child { color: #555; font-size: 12px; }
+.buy-detail span:last-child { color: #fff; font-size: 13px; font-weight: 700; }
+.buy-price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding: 14px; background: #141414; border-radius: 10px; }
+.buy-price-label { color: #666; font-size: 12px; font-family: 'Rajdhani', sans-serif; }
+.buy-price-val { color: var(--gold, #f5c518); font-family: 'Bebas Neue', sans-serif; font-size: 28px; }
+.buy-btns { display: flex; gap: 10px; margin-top: 20px; }
+.btn-confirm-buy {
+    flex: 1;
+    background: var(--gold, #f5c518);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-confirm-buy:hover { background: #ffd740; }
+.bid-input-row { display: flex; gap: 10px; align-items: center; margin-top: 16px; }
+.bid-input-row input {
+    flex: 1;
+    background: #141414;
+    border: 1px solid #222;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    outline: none;
+}
+.bid-input-row input:focus { border-color: #ff6b35; }
+.btn-confirm-bid {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-confirm-bid:hover { background: #ff8855; }
+.current-bids { margin-top: 14px; }
+.current-bids h4 { color: #555; font-size: 11px; font-family: 'Rajdhani', sans-serif; letter-spacing: 2px; margin: 0 0 8px; }
+.bid-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #141414; font-family: 'Rajdhani', sans-serif; font-size: 12px; color: #888; }
+.bid-row.top-bid { color: #4caf50; font-weight: 700; }
+
+/* ===== LOADING & EMPTY ===== */
+.loading-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 60px;
+    color: #333;
+}
+.loading-state .material-symbols-outlined { font-size: 36px; }
+.loading-state p { font-family: 'Rajdhani', sans-serif; font-size: 14px; }
+.empty-grid {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    color: #333;
+    font-family: 'Rajdhani', sans-serif;
+}
+.empty-grid .material-symbols-outlined { font-size: 48px; display: block; margin-bottom: 12px; color: #2a2a2a; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { display: inline-block; animation: spin 1s linear infinite; }
+
+/* ===== ROZET SİSTEMİ ===== */
+.dm-badge {
+    background: #e53935;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    font-family: 'Rajdhani', sans-serif;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    flex-shrink: 0;
+}
+
+#nav-dm-badge, #nav-collection-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #e53935;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 900;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    font-family: 'Rajdhani', sans-serif;
+    border: 2px solid #080808;
+    z-index: 10;
+}
+
+/* Nav linkleri pozisyon relative yap (rozet için) */
+.nav-links a {
+    position: relative !important;
+}
+
+/* ===== MESAJ GERİ AL ===== */
+.recall-btn {
+    display: none;
+    background: rgba(255,68,68,0.15);
+    border: 1px solid rgba(255,68,68,0.3);
+    color: #ff4444;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: 0.15s;
+    font-weight: 800;
+}
+.recall-btn:hover {
+    background: #ff4444;
+    color: #fff;
+}
+.chat-msg-text:hover .recall-btn {
+    display: inline-flex;
+    align-items: center;
+}

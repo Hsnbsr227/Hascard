@@ -1,0 +1,35 @@
+:root { --gold: #ffc107; --bg: #050505; --card-bg: #0f0f0f; --text: #fff; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+/* AUTH WALL */
+.auth-overlay { position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; align-items: center; justify-content: center; }
+.pin-box { background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid var(--gold); text-align: center; width: 350px; }
+.lock-icon { font-size: 50px; color: var(--gold); margin-bottom: 20px; }
+.pin-box input { width: 100%; padding: 15px; background: #151515; border: 1px solid #333; color: #fff; text-align: center; font-size: 24px; letter-spacing: 10px; border-radius: 10px; margin: 20px 0; }
+.pin-box button { background: var(--gold); border: none; padding: 12px 30px; border-radius: 8px; font-weight: 800; cursor: pointer; }
+
+/* LAYOUT */
+.admin-layout { display: flex; min-height: 100vh; }
+.sidebar { width: 260px; background: #0a0a0a; border-right: 1px solid rgba(255,193,7,0.1); padding: 30px; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+.nav-logo { font-size: 22px; font-weight: 900; color: #444; margin-bottom: 50px; }
+.nav-logo span { color: var(--gold); }
+.nav-links { flex-grow: 1; }
+.nav-links a { display: flex; align-items: center; gap: 15px; color: #666; text-decoration: none; padding: 15px 0; transition: 0.3s; }
+.nav-links a.active { color: var(--gold); }
+.content { margin-left: 260px; padding: 50px; width: 100%; }
+
+/* FORM */
+.dashboard-grid { display: grid; grid-template-columns: 1fr 350px; gap: 40px; margin-top: 30px; }
+.form-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #222; }
+.input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.input-group span { display: block; font-size: 11px; color: #555; text-transform: uppercase; margin-bottom: 5px; font-weight: 800; }
+.input-group input, .input-group select { width: 100%; padding: 12px; background: #050505; border: 1px solid #222; color: #fff; border-radius: 8px; }
+.full { grid-column: span 2; }
+.form-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+.btn-test { background: #222; color: #fff; border: none; padding: 15px; border-radius: 10px; cursor: pointer; font-weight: 700; }
+.btn-submit { background: var(--gold); color: #000; border: none; padding: 15px; border-radius: 10px; cursor: pointer; font-weight: 800; opacity: 0.5; }
+.btn-submit:not(:disabled) { opacity: 1; }
+
+/* ERROR MSG */
+.error-msg { color: #ff4444; font-size: 13px; margin-top: 10px; font-weight: 600; }
