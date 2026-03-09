@@ -24,7 +24,7 @@
         <a href="store.html" title="Mağaza / Market">
             <span class="material-symbols-outlined">shopping_bag</span>
         </a>
-        <a href="#" title="Pazar Yeri / VS">
+        <a href="market.html" title="Pazar Yeri / VS">
             <span class="material-symbols-outlined">groups</span>
         </a>
         <a href="#" title="Cüzdan">
@@ -104,6 +104,37 @@
                 </div>
             </div>
         </header>
+        <!-- FİLTRE BARI -->
+        <div class="filter-bar" id="filter-bar">
+            <div class="filter-search">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" id="search-input" placeholder="Kart ara...">
+            </div>
+            <div class="filter-group">
+                <select id="filter-rarity">
+                    <option value="">Tüm Nadirlikler</option>
+                    <option value="AA+">AA+ LEGEND</option>
+                    <option value="AA">AA EPIC</option>
+                    <option value="BB">BB ORIGIN</option>
+                    <option value="CC">CC STANDART</option>
+                    <option value="FF">FF NEW TALENT</option>
+                </select>
+                <select id="filter-lock">
+                    <option value="">Tümü</option>
+                    <option value="unlocked">Kilitsiz</option>
+                    <option value="locked">Kilitli</option>
+                </select>
+                <select id="filter-sort">
+                    <option value="">Varsayılan</option>
+                    <option value="hp-desc">HP (Yüksek → Düşük)</option>
+                    <option value="hp-asc">HP (Düşük → Yüksek)</option>
+                    <option value="hc-desc">HC (Yüksek → Düşük)</option>
+                    <option value="hc-asc">HC (Düşük → Yüksek)</option>
+                </select>
+                <button id="filter-reset" onclick="resetFilters()">↺ Sıfırla</button>
+            </div>
+        </div>
+
         <section class="collection-grid" id="collection-grid">
     </section>
     </main>
