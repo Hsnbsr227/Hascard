@@ -2,11 +2,13 @@
 .market-layout {
     margin-left: 75px;
     min-height: 100vh;
+    flex: 1;
+    width: 100%;
     background: #080808;
     display: flex;
     flex-direction: column;
-    padding: 30px 40px;
-    gap: 25px;
+    padding: 24px 36px 16px;
+    gap: 16px;
 }
 
 /* ===== HEADER ===== */
@@ -14,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 .market-header-left {
     display: flex;
@@ -81,6 +84,7 @@
     gap: 6px;
     border-bottom: 1px solid #1a1a1a;
     padding-bottom: 0;
+    flex-shrink: 0;
 }
 .tab-btn {
     display: flex;
@@ -104,7 +108,26 @@
 .tab-btn .material-symbols-outlined { font-size: 18px; }
 
 /* ===== TAB SECTIONS ===== */
-.tab-section { padding: 5px 0; }
+.tab-section {
+    padding: 5px 0;
+    flex: 1;
+    min-height: 0;
+}
+#section-pazar, #section-siralama {
+    flex: 1;
+    min-height: 0;
+}
+.tab-section#section-sosyal {
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+.tab-section#section-sosyal .sosyal-layout {
+    flex: 1;
+    min-height: 0;
+}
 
 /* ===== PAZAR LAYOUT ===== */
 .pazar-layout {
@@ -112,8 +135,10 @@
     grid-template-columns: 1fr 300px;
     gap: 25px;
     align-items: start;
+    height: 100%;
+    min-height: 0;
 }
-.pazar-main { display: flex; flex-direction: column; gap: 20px; }
+.pazar-main { display: flex; flex-direction: column; gap: 20px; min-height: 0; }
 
 /* Filter Bar */
 .pazar-filter-bar {
@@ -370,11 +395,14 @@
 /* ===== SOSYAL LAYOUT ===== */
 .sosyal-layout {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 25px;
-    align-items: start;
-    height: calc(100vh - 260px);
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    align-items: stretch;
+    height: 100%;
+    min-height: 0;
 }
+
+/* ---- CHAT PANELİ ---- */
 .chat-panel {
     background: #0e0e0e;
     border: 1px solid #1a1a1a;
@@ -384,86 +412,170 @@
     height: 100%;
     overflow: hidden;
 }
+
 .chat-header {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 16px 20px;
+    padding: 14px 20px;
     border-bottom: 1px solid #1a1a1a;
     background: #0a0a0a;
+    flex-shrink: 0;
 }
-.chat-header .material-symbols-outlined { color: var(--gold, #f5c518); font-size: 20px; }
-.chat-header h3 { color: #fff; font-size: 13px; font-weight: 900; letter-spacing: 2px; font-family: 'Rajdhani', sans-serif; flex: 1; margin: 0; }
-.online-count { display: flex; align-items: center; gap: 6px; color: #555; font-size: 11px; font-family: 'Rajdhani', sans-serif; }
+.chat-header .material-symbols-outlined { color: var(--gold, #f5c518); font-size: 18px; }
+.chat-header h3 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 'Rajdhani', sans-serif;
+    flex: 1;
+    margin: 0;
+    text-transform: uppercase;
+}
+.online-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+    font-size: 11px;
+    font-family: 'Rajdhani', sans-serif;
+    flex-shrink: 0;
+}
 .dot-green { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; box-shadow: 0 0 6px #4caf50; }
+
 .chat-messages {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
+    padding: 16px 18px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     scrollbar-width: thin;
-    scrollbar-color: #222 transparent;
+    scrollbar-color: #1e1e1e transparent;
 }
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+
 .chat-welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 40px;
+    padding: 40px 20px;
     color: #333;
     text-align: center;
 }
-.chat-welcome .material-symbols-outlined { font-size: 36px; color: #2a2a2a; }
+.chat-welcome .material-symbols-outlined { font-size: 32px; color: #1e1e1e; }
 .chat-welcome p { font-family: 'Rajdhani', sans-serif; font-size: 13px; }
+
+/* Mesaj balonu */
 .chat-msg {
     display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    animation: msgSlide 0.2s ease;
+    gap: 8px;
+    align-items: flex-end;
+    animation: msgSlide 0.18s ease;
+    max-width: 100%;
 }
-@keyframes msgSlide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.chat-msg.own { flex-direction: row-reverse; }
-.chat-msg-avatar { width: 30px; height: 30px; border-radius: 50%; background: #1a1a1a; flex-shrink: 0; }
-.chat-msg-body { max-width: 70%; }
+
+@keyframes msgSlide {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Kendi mesajları sağa yasla */
+.chat-msg.own {
+    flex-direction: row-reverse;
+}
+
+.chat-msg-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+/* Kendi mesajlarda avatar gizle (opsiyonel, sadelik için) */
+.chat-msg.own .chat-msg-avatar {
+    display: none;
+}
+
+.chat-msg-body {
+    display: flex;
+    flex-direction: column;
+    max-width: 72%;
+}
+
+.chat-msg.own .chat-msg-body {
+    align-items: flex-end;
+}
+
 .chat-msg-meta {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: baseline;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
+    padding: 0 4px;
 }
-.chat-msg.own .chat-msg-meta { flex-direction: row-reverse; }
-.chat-msg-name { color: var(--gold, #f5c518); font-size: 11px; font-weight: 800; font-family: 'Rajdhani', sans-serif; }
-.chat-msg-time { color: #333; font-size: 10px; font-family: 'Rajdhani', sans-serif; }
+
+.chat-msg.own .chat-msg-meta {
+    flex-direction: row-reverse;
+}
+
+.chat-msg-name {
+    color: var(--gold, #f5c518);
+    font-size: 10px;
+    font-weight: 900;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.chat-msg.own .chat-msg-name {
+    color: #4a9eff;
+}
+
+.chat-msg-time {
+    color: #2e2e2e;
+    font-size: 9px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
 .chat-msg-text {
-    background: #141414;
+    background: #161616;
     border: 1px solid #1e1e1e;
-    border-radius: 0 10px 10px 10px;
-    padding: 9px 13px;
-    color: #ccc;
+    border-radius: 4px 14px 14px 14px;
+    padding: 8px 12px;
+    color: #bbb;
     font-size: 13px;
     font-family: 'Rajdhani', sans-serif;
-    line-height: 1.4;
+    line-height: 1.45;
     word-break: break-word;
+    position: relative;
 }
+
 .chat-msg.own .chat-msg-text {
-    background: #1a1a2e;
-    border-color: #252545;
-    border-radius: 10px 0 10px 10px;
-    color: #ddd;
+    background: #0d1a2e;
+    border-color: #162040;
+    border-radius: 14px 4px 14px 14px;
+    color: #c8d8f0;
 }
+
+/* Input alanı */
 .chat-input-area {
     display: flex;
-    gap: 10px;
-    padding: 14px 16px;
-    border-top: 1px solid #1a1a1a;
+    gap: 8px;
+    padding: 12px 14px;
+    border-top: 1px solid #141414;
     background: #0a0a0a;
+    flex-shrink: 0;
 }
+
 .chat-input-area input {
     flex: 1;
     background: #141414;
-    border: 1px solid #222;
+    border: 1px solid #1e1e1e;
     color: #fff;
     font-family: 'Rajdhani', sans-serif;
     font-size: 14px;
@@ -472,7 +584,10 @@
     outline: none;
     transition: border-color 0.2s;
 }
-.chat-input-area input:focus { border-color: var(--gold, #f5c518); }
+
+.chat-input-area input::placeholder { color: #2e2e2e; }
+.chat-input-area input:focus { border-color: rgba(245,197,24,0.4); }
+
 .send-btn {
     background: var(--gold, #f5c518);
     color: #000;
@@ -490,38 +605,138 @@
 .send-btn:hover { background: #ffd740; transform: scale(1.05); }
 .send-btn .material-symbols-outlined { font-size: 18px; }
 
-/* Sosyal Sidebar */
-.sosyal-sidebar { display: flex; flex-direction: column; gap: 16px; height: 100%; overflow-y: auto; }
-.users-card { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
-.users-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; scrollbar-width: thin; scrollbar-color: #1a1a1a transparent; }
+/* ---- SOSYAL SIDEBAR ---- */
+.sosyal-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.users-card {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.users-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0 0 12px;
+    flex-shrink: 0;
+}
+.users-card h3 .material-symbols-outlined { font-size: 15px; color: var(--gold, #f5c518); }
+
+.users-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a transparent;
+}
+
 .user-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 10px;
+    padding: 8px 8px;
     border-radius: 8px;
-    cursor: pointer;
     transition: background 0.15s;
+    position: relative;
 }
 .user-item:hover { background: #141414; }
-.user-item img { width: 30px; height: 30px; border-radius: 50%; background: #1a1a1a; }
-.user-item-info { flex: 1; }
-.user-item-name { color: #ccc; font-size: 12px; font-weight: 700; font-family: 'Rajdhani', sans-serif; }
-.user-item-status { color: #555; font-size: 10px; font-family: 'Rajdhani', sans-serif; }
-.user-item-online { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; }
-.dm-card { display: flex; flex-direction: column; }
-.dm-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.dm-header h3 { margin: 0; color: #fff; font-size: 12px; }
-.dm-close { background: none; border: none; color: #555; font-size: 20px; cursor: pointer; line-height: 1; }
+.user-item img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.user-item-info { flex: 1; min-width: 0; }
+.user-item-name {
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user-item-status { color: #3a3a3a; font-size: 10px; font-family: 'Rajdhani', sans-serif; }
+.user-item-online { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; box-shadow: 0 0 5px #4caf50; flex-shrink: 0; }
+
+/* ---- DM PANELİ ---- */
+.dm-card {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    max-height: 280px;
+}
+
+.dm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.dm-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dm-header h3 .material-symbols-outlined { font-size: 14px; color: #4a9eff; }
+
+.dm-close {
+    background: none;
+    border: none;
+    color: #444;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+.dm-close:hover { color: #fff; }
+
 .dm-messages {
-    height: 180px;
+    flex: 1;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 10px;
     scrollbar-width: thin;
     scrollbar-color: #1a1a1a transparent;
+    min-height: 80px;
+    max-height: 160px;
 }
 
 /* ===== SIRALAMA LAYOUT ===== */
