@@ -179,7 +179,8 @@ window.switchTab = function(tab) {
         document.getElementById(`section-${t}`).style.display = 'none';
         document.getElementById(`tab-${t}`)?.classList.remove('active');
     });
-    document.getElementById(`section-${tab}`).style.display = 'block';
+    // Sosyal bölümü flex olarak aç (height chain için)
+    document.getElementById(`section-${tab}`).style.display = tab === 'sosyal' ? 'flex' : 'block';
     document.getElementById(`tab-${tab}`)?.classList.add('active');
 
     if (tab === 'sosyal')   initChat();
