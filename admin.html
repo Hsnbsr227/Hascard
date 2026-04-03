@@ -3,153 +3,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | HAS-CARD</title>
-    <link rel="stylesheet" href="admin.css">
+    <title>HASCARD · Admin Command Center</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-    <div id="auth-wall" class="auth-overlay">
+<!-- AUTH WALL -->
+<div id="auth-wall" class="auth-overlay">
+    <div class="auth-grid-bg"></div>
     <div class="pin-box">
-        <span class="material-symbols-outlined lock-icon">lock</span>
-        <h2>Admin Doğrulaması</h2>
-        <p>Devam etmek için 4 haneli kodu girin.</p>
-        <input type="password" id="adminPin" maxlength="4" placeholder="••••" autofocus>
-        <button id="loginBtn">GİRİŞ YAP</button>
+        <div class="pin-logo">
+            <span class="pin-logo-icon">⬡</span>
+            <span class="pin-logo-text">HASCARD</span>
+        </div>
+        <div class="pin-lock-ring">
+            <span class="material-symbols-outlined">shield_lock</span>
+        </div>
+        <h2>KOMUTA MERKEZİ</h2>
+        <p>Erişim yetkinizi doğrulayın</p>
+        <div class="pin-input-wrap">
+            <input type="password" id="adminPin" maxlength="4" placeholder="••••" autofocus>
+            <div class="pin-dots">
+                <span class="pin-dot" id="d1"></span>
+                <span class="pin-dot" id="d2"></span>
+                <span class="pin-dot" id="d3"></span>
+                <span class="pin-dot" id="d4"></span>
+            </div>
+        </div>
+        <button id="loginBtn" class="auth-btn" onclick="verifyPin()">
+            <span class="material-symbols-outlined">arrow_forward</span>
+            GİRİŞ YAP
+        </button>
         <div id="pin-error" class="error-msg"></div>
     </div>
 </div>
 
-    <div id="admin-panel" class="admin-layout" style="display: none;">
-        <aside class="sidebar">
-            <div class="nav-logo">ADMIN<span>PANEL</span></div>
-            <nav class="nav-links">
-                <a href="#" class="active" onclick="showSection('add-card')">
-                    <span class="material-symbols-outlined">add_box</span> Yeni Kart Ekle
-                </a>
-                <a href="#" onclick="showSection('card-pool')">
-                    <span class="material-symbols-outlined">database</span> Kart Havuzu
-                </a>
-                <a href="#" onclick="showSection('coin-packages')">
-                    <span class="material-symbols-outlined">payments</span> Coin Paketleri
-                </a>
-            </nav>
-            <div class="nav-bottom">
-                <button id="fixLinksBtn" onclick="window.fixAllLinks()" style="background:#1a1a1a; border:1px solid #00bcd4; color:#00bcd4; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:1px; width:100%; margin-bottom:10px;">🔗 LİNKLERİ DÜZELT</button>
-                <button id="cleanBrokenBtn" onclick="window.cleanBrokenCards()" style="background:#1a1a1a; border:1px solid #ff4444; color:#ff4444; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:1px; width:100%; margin-bottom:10px;">🧹 BOZUK KARTLARI TEMİZLE</button>
-                <a href="mainpage.html"><span class="material-symbols-outlined">logout</span> Çıkış Yap</a>
+<!-- ADMIN PANEL -->
+<div id="admin-panel" class="admin-layout" style="display:none;">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <span class="logo-hex">⬡</span>
+            <div class="logo-text">
+                <span class="logo-main">HASCARD</span>
+                <span class="logo-sub">ADMIN v2.0</span>
             </div>
-        </aside>
+        </div>
 
-        <main class="content">
-            <section id="add-card-section">
-                <div class="header-text">
-                    <h1>Yeni Kart <span>Oluştur</span></h1>
-                    <p>allCards veritabanına yeni bir varlık mühürle.</p>
+        <div class="sidebar-section-label">NAVIGASYON</div>
+        <nav class="nav-links">
+            <a href="#" class="active" onclick="showSection('dashboard')" id="nav-dashboard">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Genel Bakış</span>
+                <div class="nav-indicator"></div>
+            </a>
+            <a href="#" onclick="showSection('users')" id="nav-users">
+                <span class="material-symbols-outlined">group</span>
+                <span>Kullanıcılar</span>
+                <div class="nav-indicator"></div>
+            </a>
+            <a href="#" onclick="showSection('add-card')" id="nav-add-card">
+                <span class="material-symbols-outlined">add_box</span>
+                <span>Kart Ekle</span>
+                <div class="nav-indicator"></div>
+            </a>
+            <a href="#" onclick="showSection('card-pool')" id="nav-card-pool">
+                <span class="material-symbols-outlined">database</span>
+                <span>Kart Havuzu</span>
+                <div class="nav-indicator"></div>
+            </a>
+            <a href="#" onclick="showSection('coin-packages')" id="nav-coin-packages">
+                <span class="material-symbols-outlined">payments</span>
+                <span>Coin Paketleri</span>
+                <div class="nav-indicator"></div>
+            </a>
+        </nav>
+
+        <div class="sidebar-section-label">ARAÇLAR</div>
+        <div class="sidebar-tools">
+            <button onclick="window.fixAllLinks()" class="tool-btn cyan">
+                <span class="material-symbols-outlined">link</span> Linkleri Düzelt
+            </button>
+            <button onclick="window.cleanBrokenCards()" class="tool-btn red">
+                <span class="material-symbols-outlined">cleaning_services</span> Bozuk Kartları Temizle
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="admin-badge">
+                <div class="admin-badge-avatar">A</div>
+                <div class="admin-badge-info">
+                    <span class="admin-badge-name">Admin</span>
+                    <span class="admin-badge-role">Süper Admin</span>
                 </div>
+                <div class="admin-status-dot"></div>
+            </div>
+            <a href="mainpage.html" class="logout-btn">
+                <span class="material-symbols-outlined">logout</span> Çıkış
+            </a>
+        </div>
+    </aside>
 
-                <div class="dashboard-grid">
-                    <div class="form-card">
-                        <div class="input-grid">
-                            <div class="input-group"><span>General ID</span><input type="text" id="c_id" placeholder="005"></div>
-                            <div class="input-group"><span>Oyuncu Adı</span><input type="text" id="c_name" placeholder="Arda Güler"></div>
-                            <div class="input-group"><span>GEN</span><input type="number" id="c_gen" placeholder="81"></div>
-                            <div class="input-group"><span>Mevki</span><input type="text" id="c_pos" placeholder="CAM"></div>
-                            <div class="input-group"><span>Piyasa Değeri</span><input type="text" id="c_value" placeholder="10M€"></div>
-                            <div class="input-group"><span>HP (Güç)</span><input type="number" id="c_hp" placeholder="400"></div>
-                            <div class="input-group"><span>HC (Market Fiyatı)</span><input type="number" id="c_hc" placeholder="1500"></div>
-                            <div class="input-group"><span>Max Supply</span><input type="number" id="c_supply" placeholder="5"></div>
-                            <div class="input-group">
-                                <span>Limited mı?</span>
-                                <select id="c_is_limited" onchange="toggleLimitedFields()" style="background: #1a1a1a; color: white; border: 1px solid #333; padding: 12px; border-radius: 8px;">
-                                    <option value="false">Hayır</option>
-                                    <option value="true">Evet</option>
-                                </select>
-                            </div>
+    <!-- MAIN CONTENT -->
+    <main class="content">
 
-                            <div id="limited_fields" class="input-group" style="display: none;">
-                                <span>Limited No (Örn: 1)</span>
-                                <input type="number" id="c_limited_no" placeholder="1">
-                            </div>
-                            <div class="input-group"><span>Seri</span><input type="text" id="c_series" placeholder="2023-2024"></div>
-                            <div class="input-group"><span>Ülke (TR, AR)</span><input type="text" id="c_nation" placeholder="TR"></div>
-                            <div class="input-group full"><span>Görsel URL</span><input type="text" id="c_img" placeholder="https://..."></div>
-                            <div class="input-group full">
-                                <span>Nadirlik</span>
-                                <select id="c_rarity" class="form-control" style="background: #1a1a1a; color: white; border: 1px solid #333; padding: 12px; border-radius: 8px; width: 100%;">
-                                    <option value="AA+ LEGEND">AA+ : LEGEND</option>
-                                    <option value="AA EPIC">AA : EPİC</option>
-                                    <option value="BB ORIGIN">BB : ORIGIN</option>
-                                    <option value="CC STANDART">CC : STANDART</option>
-                                    <option value="FF NEW TALENT">FF : NEW TALENT</option>
-                                </select>
-                            </div>
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div class="topbar-breadcrumb">
+                <span id="topbar-title">Genel Bakış</span>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-time" id="topbar-time"></div>
+                <div class="topbar-date" id="topbar-date"></div>
+            </div>
+        </div>
+
+        <!-- ===== DASHBOARD SEKSİYONU ===== -->
+        <section id="dashboard-section">
+            <div class="section-header">
+                <h1>Genel <span>Bakış</span></h1>
+                <p>Platform istatistikleri ve özet veriler</p>
+            </div>
+
+            <!-- KPI Kartları -->
+            <div class="kpi-grid">
+                <div class="kpi-card" data-color="gold">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">group</span></div>
+                    <div class="kpi-data">
+                        <div class="kpi-value" id="kpi-users">—</div>
+                        <div class="kpi-label">Toplam Kullanıcı</div>
+                    </div>
+                    <div class="kpi-trend" id="kpi-users-trend"></div>
+                </div>
+                <div class="kpi-card" data-color="green">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">payments</span></div>
+                    <div class="kpi-data">
+                        <div class="kpi-value" id="kpi-hc">—</div>
+                        <div class="kpi-label">Toplam HC Dolaşımda</div>
+                    </div>
+                    <div class="kpi-trend" id="kpi-hc-trend"></div>
+                </div>
+                <div class="kpi-card" data-color="blue">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">style</span></div>
+                    <div class="kpi-data">
+                        <div class="kpi-value" id="kpi-cards">—</div>
+                        <div class="kpi-label">Toplam Kart Basımı</div>
+                    </div>
+                    <div class="kpi-trend" id="kpi-cards-trend"></div>
+                </div>
+                <div class="kpi-card" data-color="orange">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">swap_horiz</span></div>
+                    <div class="kpi-data">
+                        <div class="kpi-value" id="kpi-trades">—</div>
+                        <div class="kpi-label">Toplam İşlem</div>
+                    </div>
+                    <div class="kpi-trend" id="kpi-trades-trend"></div>
+                </div>
+            </div>
+
+            <!-- Grafikler -->
+            <div class="charts-grid">
+                <div class="chart-card wide">
+                    <div class="chart-header">
+                        <div>
+                            <h3>Kullanıcı Aktivitesi</h3>
+                            <p>Son kayıt tarihleri</p>
                         </div>
-                        <div class="form-actions">
-                            <button id="testBtn" class="btn-test" onclick="previewCard()">TEST ET</button>
-                            <button id="submitBtn" class="btn-submit" disabled onclick="pushToDB()">HAVUZA GÖNDER</button>
+                        <div class="chart-range-btns">
+                            <button class="range-btn active" onclick="setChartRange('7', this)">7G</button>
+                            <button class="range-btn" onclick="setChartRange('30', this)">30G</button>
+                            <button class="range-btn" onclick="setChartRange('90', this)">90G</button>
                         </div>
                     </div>
-
-                    <div class="preview-area">
-                        <h3>Kart Önizleme</h3>
-                        <div id="cardPreview" class="preview-placeholder">Verileri girip Test Et'e basın</div>
+                    <div class="chart-wrap">
+                        <canvas id="activityChart"></canvas>
                     </div>
                 </div>
-            </section>
 
-            <section id="card-pool-section" style="display: none;">
-                <h1>Kart Havuzu <span>(allCards)</span></h1>
-                <div id="poolDisplay" class="pool-grid"></div>
-            </section>
-
-            <section id="coin-packages-section" style="display: none;">
-                <div class="header-text">
-                    <h1>Coin <span>Paketleri</span></h1>
-                    <p>Store sayfasında görünen coin paketlerini yönet.</p>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px;">
-                    <!-- YENİ PAKET FORMU -->
-                    <div class="form-card">
-                        <h3 style="color: var(--gold); margin-bottom: 25px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase;">Yeni Paket Ekle</h3>
-                        <div class="input-grid">
-                            <div class="input-group">
-                                <span>HC Miktarı</span>
-                                <input type="number" id="cp_amount" placeholder="380">
-                            </div>
-                            <div class="input-group">
-                                <span>Fiyat (TL)</span>
-                                <input type="text" id="cp_price" placeholder="99.99 TL">
-                            </div>
-                            <div class="input-group">
-                                <span>Sıra (1=ilk)</span>
-                                <input type="number" id="cp_order" placeholder="1">
-                            </div>
-                        </div>
-                        <div class="form-actions" style="margin-top: 20px;">
-                            <button class="btn-submit" onclick="window.addCoinPackage()" style="opacity:1;">
-                                + PAKET EKLE
-                            </button>
-                            <button class="btn-test" onclick="window.seedDefaultPackages()">
-                                ↺ VARSAYILANLARI YÜKLE
-                            </button>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div>
+                            <h3>Nadirlik Dağılımı</h3>
+                            <p>Kart havuzu analizi</p>
                         </div>
                     </div>
-
-                    <!-- MEVCUT PAKETLER -->
-                    <div class="form-card">
-                        <h3 style="color: var(--gold); margin-bottom: 25px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase;">Mevcut Paketler</h3>
-                        <div id="coinPackagesList" style="display:flex; flex-direction:column; gap:10px;">
-                            <p style="color:#444;">Yükleniyor...</p>
-                        </div>
+                    <div class="chart-wrap" style="display:flex;align-items:center;justify-content:center;">
+                        <canvas id="rarityChart" style="max-height:220px;"></canvas>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+
+            <!-- Alt grid: En çok işlem yapanlar + En çok satan kartlar -->
+            <div class="bottom-grid">
+                <div class="list-card">
+                    <h3><span class="material-symbols-outlined">emoji_events</span> En Aktif Kullanıcılar</h3>
+                    <div id="top-users-list" class="ranked-list">
+                        <div class="list-loading">Yükleniyor...</div>
+                    </div>
+                </div>
+                <div class="list-card">
+                    <h3><span class="material-symbols-outlined">local_fire_department</span> En Çok İşlem Gören Kartlar</h3>
+                    <div id="top-cards-list" class="ranked-list">
+                        <div class="list-loading">Yükleniyor...</div>
+                    </div>
+                </div>
+                <div class="list-card">
+                    <h3><span class="material-symbols-outlined">history</span> Son İşlemler</h3>
+                    <div id="recent-trades-list" class="ranked-list">
+                        <div class="list-loading">Yükleniyor...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== KULLANICI YÖNETİMİ ===== -->
+        <section id="users-section" style="display:none;">
+            <div class="section-header">
+                <h1>Kullanıcı <span>Yönetimi</span></h1>
+                <p>Tüm kullanıcıları görüntüle, düzenle ve yönet</p>
+            </div>
+
+            <div class="users-toolbar">
+                <div class="search-box">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" id="user-search" placeholder="İsim veya e-posta ara..." oninput="filterUsers()">
+                </div>
+                <div class="filter-group">
+                    <select id="user-role-filter" onchange="filterUsers()">
+                        <option value="">Tüm Roller</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">Kullanıcı</option>
+                    </select>
+                    <select id="user-status-filter" onchange="filterUsers()">
+                        <option value="">Tüm Durumlar</option>
+                        <option value="active">Aktif</option>
+                        <option value="suspended">Askıda</option>
+                        <option value="banned">Banlı</option>
+                    </select>
+                </div>
+                <div class="user-count-badge">
+                    Toplam: <span id="user-total-count">0</span> kullanıcı
+                </div>
+            </div>
+
+            <div class="users-table-wrap">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Kullanıcı</th>
+                            <th>E-Posta</th>
+                            <th>Rol</th>
+                            <th>Durum</th>
+                            <th>HC Bakiye</th>
+                            <th>Kayıt Tarihi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <tr><td colspan="7" class="table-loading">Kullanıcılar yükleniyor...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== KART EKLE ===== -->
+        <section id="add-card-section" style="display:none;">
+            <div class="section-header">
+                <h1>Yeni Kart <span>Oluştur</span></h1>
+                <p>allCards veritabanına yeni bir varlık mühürle.</p>
+            </div>
+            <div class="dashboard-grid">
+                <div class="form-card">
+                    <div class="input-grid">
+                        <div class="input-group"><span>General ID</span><input type="text" id="c_id" placeholder="005"></div>
+                        <div class="input-group"><span>Oyuncu Adı</span><input type="text" id="c_name" placeholder="Arda Güler"></div>
+                        <div class="input-group"><span>GEN</span><input type="number" id="c_gen" placeholder="81"></div>
+                        <div class="input-group"><span>Mevki</span><input type="text" id="c_pos" placeholder="CAM"></div>
+                        <div class="input-group"><span>Piyasa Değeri</span><input type="text" id="c_value" placeholder="10M€"></div>
+                        <div class="input-group"><span>HP (Güç)</span><input type="number" id="c_hp" placeholder="400"></div>
+                        <div class="input-group"><span>HC (Market Fiyatı)</span><input type="number" id="c_hc" placeholder="1500"></div>
+                        <div class="input-group"><span>Max Supply</span><input type="number" id="c_supply" placeholder="5"></div>
+                        <div class="input-group">
+                            <span>Limited mı?</span>
+                            <select id="c_is_limited" onchange="toggleLimitedFields()">
+                                <option value="false">Hayır</option>
+                                <option value="true">Evet</option>
+                            </select>
+                        </div>
+                        <div id="limited_fields" class="input-group" style="display:none;">
+                            <span>Limited No</span>
+                            <input type="number" id="c_limited_no" placeholder="1">
+                        </div>
+                        <div class="input-group"><span>Seri</span><input type="text" id="c_series" placeholder="2023-2024"></div>
+                        <div class="input-group"><span>Ülke (TR, AR)</span><input type="text" id="c_nation" placeholder="TR"></div>
+                        <div class="input-group full"><span>Görsel URL</span><input type="text" id="c_img" placeholder="https://..."></div>
+                        <div class="input-group full">
+                            <span>Nadirlik</span>
+                            <select id="c_rarity">
+                                <option value="AA+ LEGEND">AA+ : LEGEND</option>
+                                <option value="AA EPIC">AA : EPİC</option>
+                                <option value="BB ORIGIN">BB : ORIGIN</option>
+                                <option value="CC STANDART">CC : STANDART</option>
+                                <option value="FF NEW TALENT">FF : NEW TALENT</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button id="testBtn" class="btn-test" onclick="previewCard()">TEST ET</button>
+                        <button id="submitBtn" class="btn-submit" disabled onclick="pushToDB()">HAVUZA GÖNDER</button>
+                    </div>
+                </div>
+                <div class="preview-area">
+                    <h3>Kart Önizleme</h3>
+                    <div id="cardPreview" class="preview-placeholder">Verileri girip Test Et'e basın</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== KART HAVUZU ===== -->
+        <section id="card-pool-section" style="display:none;">
+            <div class="section-header">
+                <h1>Kart <span>Havuzu</span></h1>
+                <p>allCards koleksiyonu</p>
+            </div>
+            <div id="poolDisplay" class="pool-grid"></div>
+        </section>
+
+        <!-- ===== COİN PAKETLERİ ===== -->
+        <section id="coin-packages-section" style="display:none;">
+            <div class="section-header">
+                <h1>Coin <span>Paketleri</span></h1>
+                <p>Store sayfasında görünen coin paketlerini yönet.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:10px;">
+                <div class="form-card">
+                    <h3 class="form-card-title">Yeni Paket Ekle</h3>
+                    <div class="input-grid">
+                        <div class="input-group"><span>HC Miktarı</span><input type="number" id="cp_amount" placeholder="380"></div>
+                        <div class="input-group"><span>Fiyat (TL)</span><input type="text" id="cp_price" placeholder="99.99 TL"></div>
+                        <div class="input-group"><span>Sıra</span><input type="number" id="cp_order" placeholder="1"></div>
+                    </div>
+                    <div class="form-actions" style="margin-top:20px;">
+                        <button class="btn-submit" style="opacity:1;" onclick="window.addCoinPackage()">+ PAKET EKLE</button>
+                        <button class="btn-test" onclick="window.seedDefaultPackages()">↺ VARSAYILANLAR</button>
+                    </div>
+                </div>
+                <div class="form-card">
+                    <h3 class="form-card-title">Mevcut Paketler</h3>
+                    <div id="coinPackagesList" style="display:flex;flex-direction:column;gap:10px;">
+                        <p style="color:#444;">Yükleniyor...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- KULLANICI DÜZENLEME MODALI -->
+<div id="user-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box user-modal-box">
+        <button class="modal-close" onclick="closeUserModal()">&times;</button>
+        <div id="user-modal-content"></div>
     </div>
+</div>
 
-    <script type="module" src="admin.js"></script>
+<script>
+// PIN dot animasyonu
+document.addEventListener('DOMContentLoaded', () => {
+    const pin = document.getElementById('adminPin');
+    if (pin) {
+        pin.addEventListener('input', () => {
+            for (let i = 1; i <= 4; i++) {
+                const dot = document.getElementById(`d${i}`);
+                if (dot) dot.classList.toggle('filled', pin.value.length >= i);
+            }
+        });
+    }
+
+    // Saat
+    function updateTime() {
+        const now = new Date();
+        const t = document.getElementById('topbar-time');
+        const d = document.getElementById('topbar-date');
+        if (t) t.textContent = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        if (d) d.textContent = now.toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+});
+</script>
+<script type="module" src="admin.js"></script>
 </body>
 </html>
