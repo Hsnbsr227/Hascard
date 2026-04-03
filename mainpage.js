@@ -265,7 +265,7 @@ function openCardDetail(data) {
     quickSellBtn.onclick = () => handleQuickSell(data, quickPrice);
     lockBtn.onclick = () => handleToggleLock(data);
     if (deleteBtn) deleteBtn.onclick = () => handleDeleteCard(data);
-    if (pazarBtn) pazarBtn.onclick = () => alert("Pazar sistemi yakında eklenecek!");
+    if (pazarBtn) pazarBtn.onclick = () => window.location.href = "market.html";
 
     elements.modal.style.display = 'flex';
 }
